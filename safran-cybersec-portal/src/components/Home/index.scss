@@ -1,0 +1,49 @@
+@import '~bootstrap/dist/css/bootstrap.min.css';
+
+.container {
+    margin-top: 4vh;
+    .row {
+        margin-bottom: 4vh;
+    
+    .tile {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+       
+        :hover {
+            transition: .8s;
+            transform: scale(104%);
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .tile-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            column-gap: 2vh;
+            align-items: center;
+            height: 100%;
+
+            :hover{
+                transition: none;
+                transform: none;
+                box-shadow: none;
+            }
+
+            h2{
+                font-size: 21px;
+                font-family: 'barlow','Arial','Sans-serif';
+            }
+
+            img {
+                max-width: 100%;
+                max-height: 100%;
+                object-fit: contain;
+            }
+
+            }
+        }
+      }
+}

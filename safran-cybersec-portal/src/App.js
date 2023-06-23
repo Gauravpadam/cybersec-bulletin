@@ -1,0 +1,47 @@
+
+import { Route, Routes } from 'react-router-dom';
+import './App.scss';
+import Layout from './components/Layout';
+import Home from './components/Home';
+import ReactPaginate from 'react-paginate';
+
+function App() {
+
+  const handlePageClick = (data) => {
+    console.log(data);
+  }
+
+  return (
+    <>
+      <Routes>
+        <Route path='/' element={<Layout />}>
+        <Route index element={<Home />} />
+        </Route>
+      </Routes>
+
+      <ReactPaginate
+        previousLabel = {'previous'}
+        nextLabel = {'next'}
+        breakLabel = {'...'}
+        pageCount={25}
+        marginPagesDisplayed={'2'}
+        pageRangeDisplayed={'3'}
+        onPageChange={handlePageClick}
+        containerClassName={'pagination justify-content-center'}
+        pageClassName= {'page-item'}
+        pageLinkClassName= {'page-link'}
+        activeClassName= {'active'}
+        previousClassName= {'page-item'}
+        previousLinkClassName={'page-link'}
+        breakClassName= {'page-item'}
+        breakLinkClassName= {'page-link'}
+        nextClassName= {'page-item'}
+        nextLinkClassName= {'page-link'}
+      />
+    </>
+
+
+  );
+}
+
+export default App;
