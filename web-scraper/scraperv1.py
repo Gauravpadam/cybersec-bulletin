@@ -7,7 +7,7 @@ def scrape_data(url):
     html_content = response.text
     links = []
     soups = []
-    articledata = {'Title': [], 'Body': [], 'img': []}
+    articledata = []
 
     # Parse the HTML content using Beautiful Soup
     mainsoup = BeautifulSoup(html_content, "lxml")
@@ -20,16 +20,18 @@ def scrape_data(url):
         soup = BeautifulSoup(res.text, "lxml")
         soups.append(soup)
         links.append(link)
+    
 
     # Second pass extracting data from soups
+    id = 0
     for soup in soups:
+        id+=1
         title = soup.select_one('title').text
         summary = soup.select_one('.summary').get_text()
         picture = soup.select_one('picture')
         img_src = picture.find('img' , src=True)['src']
-        articledata['Title'].append(title)
-        articledata['Body'].append(summary)
-        articledata['img'].append(img_src)
+        articledata.append({'Articleid':id , 'Title':title , 'Summary':summary , 'Picture':img_src})
+
 
     print(articledata)
 
