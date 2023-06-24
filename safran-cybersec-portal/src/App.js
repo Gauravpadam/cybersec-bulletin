@@ -4,11 +4,25 @@ import './App.scss';
 import Layout from './components/Layout';
 import Home from './components/Home';
 import ReactPaginate from 'react-paginate';
+import { useEffect, useState } from 'react';
 
 function App() {
 
+  const [items , setItems] = useState([]);
+
+  useEffect(() => {
+    const getArticles = async () => {
+      const res = await fetch("http://localhost:3004/Articles?_page=1&_limit=6");
+      const data = await res.json();
+      setItems(data)
+    };
+
+    getArticles();
+
+  }, []);
+
   const handlePageClick = (data) => {
-    console.log(data);
+    
   }
 
   return (
@@ -18,7 +32,6 @@ function App() {
         <Route index element={<Home />} />
         </Route>
       </Routes>
-
       <ReactPaginate
         previousLabel = {'previous'}
         nextLabel = {'next'}
@@ -37,7 +50,7 @@ function App() {
         breakLinkClassName= {'page-link'}
         nextClassName= {'page-item'}
         nextLinkClassName= {'page-link'}
-      />
+         />
     </>
 
 
