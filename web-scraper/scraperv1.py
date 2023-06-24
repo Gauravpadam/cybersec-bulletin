@@ -1,5 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
+import json
 
 def scrape_data(url):
     session = requests.Session()
@@ -33,7 +34,8 @@ def scrape_data(url):
         articledata.append({'Articleid':id , 'Title':title , 'Summary':summary , 'Picture':img_src})
 
 
-    print(articledata)
+    with open("JsonData.json","w") as file:
+        json.dump(articledata , file)
 
 
 # Example usage
