@@ -21,7 +21,16 @@ function App() {
 
   }, []);
 
+  const fetchOnPageChange = async (currentpage) => {
+    const res = await fetch(`http://localhost:3004/Articles?_page=${currentpage}&_limit=6`);
+    let data = await res.json()
+    setItems(data)
+  }
+
   const handlePageClick = (data) => {
+
+    let currentpage = data.selected + 1
+    fetchOnPageChange(currentpage)
     
   }
 
@@ -29,7 +38,7 @@ function App() {
     <>
       <Routes>
         <Route path='/' element={<Layout />}>
-        <Route index element={<Home />} />
+        <Route index element={<Home items={items}/>} />
         </Route>
       </Routes>
       <ReactPaginate
@@ -50,7 +59,7 @@ function App() {
         breakLinkClassName= {'page-link'}
         nextClassName= {'page-item'}
         nextLinkClassName= {'page-link'}
-         />
+      />
     </>
 
 
