@@ -4,7 +4,7 @@ import './index.scss';
 const Home = ({items}) => {
   return (
     <div className='container'>
-      <div className='row'>
+      <div className='row md-2'>
 
       { items.map((item) => {
          return (

@@ -1,5 +1,5 @@
 
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, json } from 'react-router-dom';
 import './App.scss';
 import Layout from './components/Layout';
 import Home from './components/Home';
@@ -45,7 +45,7 @@ function App() {
         previousLabel = {'previous'}
         nextLabel = {'next'}
         breakLabel = {'...'}
-        pageCount={25}
+        pageCount={3}
         marginPagesDisplayed={'2'}
         pageRangeDisplayed={'3'}
         onPageChange={handlePageClick}
