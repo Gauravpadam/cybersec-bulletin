@@ -33,6 +33,8 @@ def scrape_data(url):
         img_src = picture.find('img' , src=True)['src']
         articledata.append({'Articleid':id , 'Title':title , 'Summary':summary , 'Picture':img_src})
 
+    articledata = {"Articles":articledata} # Proper formatting of JSON
+
 
     with open("JsonData.json","w") as file:
         json.dump(articledata , file)
