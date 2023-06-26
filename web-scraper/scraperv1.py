@@ -40,6 +40,5 @@ def scrape_data(url):
         json.dump(articledata , file)
 
 
-# Example usage
-url = "https://www.darkreading.com/vulnerabilities-threats"  # Replace with the actual URL of the site
+url = "https://www.darkreading.com/vulnerabilities-threats" 
 scrape_data(url)
