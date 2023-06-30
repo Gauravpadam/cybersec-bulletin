@@ -6,9 +6,11 @@ const Home = () => {
 
   const [items , setItems] = useState([]);
 
+  console.log(items);
+
   useEffect(() => {
     const getArticles = async () => {
-      const res = await fetch("http://localhost:3004/Articles?_page=1&_limit=6");
+      const res = await fetch("http://localhost:8000/1");
       const data = await res.json();
       setItems(data)
     };
@@ -18,7 +20,7 @@ const Home = () => {
   }, []);
 
   const fetchOnPageChange = async (currentpage) => {
-    const res = await fetch(`http://localhost:3004/Articles?_page=${currentpage}&_limit=6`);
+    const res = await fetch(`http://localhost:8000/${currentpage}`);
     let data = await res.json()
     setItems(data)
   }

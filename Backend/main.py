@@ -1,57 +1,40 @@
 from fastapi import FastAPI
 import requests
+from fastapi.middleware.cors import CORSMiddleware
 from bs4 import BeautifulSoup
 import json
 
+# Configure CORS
+origins = [
+    "http://localhost:3000",  # Replace with the URL of your React app
+]
+
+
 app = FastAPI()
 
-def scrape_data(url):
-    session = requests.Session()
-    response = session.get(url)
-    html_content = response.text
-    links = []
-    soups = []
-    articledata = []
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["GET"],
+    allow_headers=["*"],
+)
 
-    # Parse the HTML content using Beautiful Soup
-    mainsoup = BeautifulSoup(html_content, "lxml")
-    articles = mainsoup.find_all("div", class_="topic-content-article")
+@app.get("/1")
+async def read_item1():
+    with open("JsonData.json", "r") as file:
+        articledata = json.load(file)
+        return articledata[:6]
 
-    # First pass fetching links and creating soups
-    for article in articles:
-        link = article.find("a", href=True)['href']
-        res = session.get(link)
-        soup = BeautifulSoup(res.text, "lxml")
-        soups.append(soup)
-        links.append(link)
-    
+@app.get("/2")
+async def read_item2():
+    with open("JsonData.json", "r") as file:
+        articledata = json.load(file)
 
-    # Second pass extracting data from soups
-    id = 0
-    for soup in soups:
-        id+=1
-        title = soup.select_one('title').text
-        summary = soup.select_one('.summary').get_text()
-        picture = soup.select_one('picture')
-        img_src = picture.find('img' , src=True)['src']
-        articledata.append({'Articleid':id , 'Title':title , 'Summary':summary , 'Picture':img_src})
+        return articledata[6:12]
 
-    articledata = {"Articles":articledata} # Proper formatting of JSON
-
-
-    with open("JsonData.json","w") as file:
-        json.dump(articledata , file)
-
-    return articledata
-
-
-url = "https://www.darkreading.com/vulnerabilities-threats" 
-
-@app.get("/Articles")
-
-async def read_item():
-    return scrape_data(url)
-
-
-
-   
+@app.get("/3")
+async def read_item3():
+    with open("JsonData.json", "r") as file:
+        articledata = json.load(file)
+        return articledata[12:15]
