@@ -6,8 +6,6 @@ const Home = () => {
 
   const [items , setItems] = useState([]);
 
-  console.log(items);
-
   useEffect(() => {
     const getArticles = async () => {
       const res = await fetch("http://localhost:8000/1");
