@@ -38,10 +38,19 @@ const Home = () => {
          return (
          <div className='col-md-4 col-sm-6 col-xs-12 tile'>
           <div className="tile-content">
+            <div className='image'>
             <img src={item.Picture} alt="Tile thumbnail" />
+            <div className='image-overlay'>
+              <div className='overlay-content'>
+                <h3>{item.Summary}</h3>
+              </div>
+            </div>
+            </div>
+            <div className='title'>
             <h2>{item.Title}</h2>
+            </div>
           </div>
-        </div>
+          </div>
         )
       })}
 
