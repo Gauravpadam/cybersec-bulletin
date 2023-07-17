@@ -43,6 +43,7 @@ const Home = () => {
             <div className='image-overlay'>
               <div className='overlay-content'>
                 <h3>{item.Summary}</h3>
+                <h4><button className='btn btn-light'><a href={item.Link} target='_blank'>Read More</a></button></h4>
               </div>
             </div>
             </div>
