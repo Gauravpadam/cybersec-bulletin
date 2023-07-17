@@ -14,7 +14,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-client = MongoClient("mongodb+srv://gauravpadam2:Passwordgoeshere@cluster0.7qcntfh.mongodb.net/")
+client = MongoClient("mongodb+srv://gauravpadam2:Growisto12ee1122@cluster0.7qcntfh.mongodb.net/")
 db = client["Articles"]
 collection = db["Articlecollection"]
 
@@ -48,7 +48,7 @@ def scrape_and_store():
         summary = soup.select_one('.summary').get_text()
         picture = soup.select_one('picture')
         img_src = picture.find('img', src=True)['src']
-        articledata.append({'Articleid': id, 'Title': title, 'Summary': summary, 'Picture': img_src})
+        articledata.append({'Articleid': id, 'Title': title, 'Summary': summary, 'Picture': img_src , 'Link': links[id-1]})
 
     # Store the data in MongoDB
     collection.delete_many({})  # Clear existing data
