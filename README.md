@@ -24,7 +24,7 @@ I have provided a ./dist folder which contains executables for major Operating S
 
 #### For UNIX based operating systems(MAC OS, Ubuntu, Arch etc.)
  - Open your terminal and redirect into dist/ directory
- - From here, run the command `./run-web-app.sh`
+ - From here, run the command `sudo sh ./run-web-app.sh`
   Again, Please be patient for the first instantiation, The process is a lot quicker henceforth
 
 ##### (A quick note: Please keep the terminals made by the executables open as long as you want to run the application, Since it is a local deployment)
