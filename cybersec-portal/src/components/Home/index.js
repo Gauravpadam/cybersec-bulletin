@@ -8,7 +8,7 @@ const Home = () => {
 
   useEffect(() => {
     const getArticles = async () => {
-      const res = await fetch("http://localhost:8000/data/1");
+      const res = await fetch("http://localhost:80/data/1");
       const data = await res.json();
       setItems(data)
     };
@@ -18,7 +18,7 @@ const Home = () => {
   }, []);
 
   const fetchOnPageChange = async (currentpage) => {
-    const res = await fetch(`http://localhost:8000/data/${currentpage}`);
+    const res = await fetch(`http://localhost:80/data/${currentpage}`);
     let data = await res.json()
     setItems(data)
   }
