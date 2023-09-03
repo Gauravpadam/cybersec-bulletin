@@ -16,7 +16,7 @@ This is a completely dockerized cybersecurity bulletin web application built ove
 - That's it!
 
 ### Running this application:
-I have provided a ./dist folder which contains executables for major Operating Systems
+I have provided a ./dist folder which contains executables for major Operating System
 
 #### For windows:
 - Execute the `run-web-app.bat` located in th dist/ directory of this project.
@@ -26,6 +26,9 @@ I have provided a ./dist folder which contains executables for major Operating S
  - Open your terminal and redirect into dist/ directory
  - From here, run the command `./run-web-app.sh`
   Again, Please be patient for the first instantiation, The process is a lot quicker henceforth
+
+##### (A quick note: Please keep the terminals made by the executables open as long as you want to run the application, Since it is a local deployment)
+##### (A quick note: running the .bat file might give you a warning of unknown signature, Please rest assured and run the file anyways. This happens because the file needs official certificate signing which was not possible in the development phase)
   
 ### Where can I see my application:
 The application is hosted at https://localhost:3000
