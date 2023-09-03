@@ -16,7 +16,7 @@ This is a completely dockerized cybersecurity bulletin web application built ove
 I have provided a ./dist folder which contains executables for major Operating Systems
 
 - #### For windows:
-  Execute the `run-web-app.exe` located in th dist/ directory of this project
+  Execute the `run-web-app.bat` located in th dist/ directory of this project
   Please be patient as docker builds your application, First time execution can take upto 4-5 minutes
 
 - #### For UNIX based operating systems(MAC OS, Ubuntu, Arch etc.)
@@ -31,6 +31,7 @@ You can access the bulletin by opening this url in your web browser
 ### (This section is only for developers/maintainers of this project)
 - For deployment on servers, Please setup an orchestration tool like kubernetes
 - Make necessary adjustments to `dockerfiles` and `docker-compose.yaml`
+- The Web scraper folder contains `Scraperv1.py` which contains the logic of scrapping, Same has been implemented in the backend
 - If you encounter any issues/bugs/queries pertaining the bulletin, Please feel free to contact me over my E-Mail, gauravpadam2@gmail.com
 - Safran must have rest of my details as well, Please feel free to contact me over other platforms as well
 
