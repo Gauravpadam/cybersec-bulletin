@@ -24,8 +24,9 @@ I have provided a ./dist folder which contains executables for major Operating S
 
 #### For UNIX based operating systems(MAC OS, Ubuntu, Arch etc.)
  - Open your terminal and redirect into dist/ directory
- - From here, run the command `sudo sh ./run-web-app.sh`
-  Again, Please be patient for the first instantiation, The process is a lot quicker henceforth
+ - From here, run the command `chmod +x run-web-app.sh`
+ - Now run `./run-web-app.sh`
+ - Again, Please be patient for the first instantiation, The process is a lot quicker henceforth
 
 ##### (A quick note: Please keep the terminals made by the executables open as long as you want to run the application, Since it is a local deployment)
 ##### (A quick note: running the .bat file might give you a warning of unknown signature, Please rest assured and run the file anyways. This happens because the file needs official certificate signing which was not possible in the development phase)
