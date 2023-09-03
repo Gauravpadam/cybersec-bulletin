@@ -9,7 +9,7 @@ This is a completely dockerized cybersecurity bulletin web application built ove
 
 ## How to use it:
 ### Pre-requisites:
-- Docker must be installed and running on the user's system ( [Link to docker download page](https://learn.microsoft.com/en-us/windows/wsl/install) )
+- Docker must be installed and running on the user's system ( [Link to docker download page](https://www.docker.com) )
 - For Windows users
   - Please make sure you're using Windows 10 or Above, With WSL setup ( usually takes less than 5 minutes , You can refer to this [official documentation from Microsoft](https://learn.microsoft.com/en-us/windows/wsl/install) )
 - For UNIX users, Only docker installed is enough
