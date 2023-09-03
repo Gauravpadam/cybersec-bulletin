@@ -1,8 +1,6 @@
-import requests
-from bs4 import BeautifulSoup
-import json
+def main():
+    url = "https://www.darkreading.com/vulnerabilities-threats"
 
-def scrape_data(url):
     session = requests.Session()
     response = session.get(url)
     html_content = response.text
@@ -21,24 +19,18 @@ def scrape_data(url):
         soup = BeautifulSoup(res.text, "lxml")
         soups.append(soup)
         links.append(link)
-    
 
     # Second pass extracting data from soups
     id = 0
     for soup in soups:
-        id+=1
+        id += 1
         title = soup.select_one('title').text
         summary = soup.select_one('.summary').get_text()
         picture = soup.select_one('picture')
-        img_src = picture.find('img' , src=True)['src']
-        articledata.append({'Articleid':id , 'Title':title , 'Summary':summary , 'Picture':img_src})
-
-    articledata = {"Articles":articledata} # Proper formatting of JSON
-
-
-    with open("JsonData.json","w") as file:
-        json.dump(articledata , file)
-
-
-url = "https://www.darkreading.com/vulnerabilities-threats" 
-scrape_data(url)
+        if picture:
+            img_src = picture.find('img', src=True)['src']
+        else:
+            img_src="https://eu-images.contentstack.com/v3/assets/blt66983808af36a8ef/blt0081f3369307d97f/61e87ceed912285939eb7b20/DDoS_Aleksey_Funtap_Alamy.jpg?quality=80&format=webply&width=690"
+            pass # Frontend will handle no image case
+        articledata.append({'Articleid': id, 'Title': title, 'Summary': summary, 'Picture': img_src , 'Link': links[id-1]})
+main()
