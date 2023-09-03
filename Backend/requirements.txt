@@ -1,0 +1,7 @@
+fastapi
+pymongo
+apscheduler
+requests
+beautifulsoup4
+uvicorn
+lxml
