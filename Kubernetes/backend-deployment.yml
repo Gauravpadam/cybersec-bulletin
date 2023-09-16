@@ -13,7 +13,7 @@ spec:
         app: safran-backend
     spec:
       containers:
-      - name: safran-backend-container
+      - name: safran-backend
         image: safran-backend:latest
         ports:
         - containerPort: 80

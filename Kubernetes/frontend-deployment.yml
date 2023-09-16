@@ -13,7 +13,7 @@ spec:
         app: safran-frontend
     spec:
       containers:
-      - name: safran-frontend-container
+      - name: safran-frontend
         image: safran-frontend:latest  # Use the image name you built earlier
         ports:
         - containerPort: 80
