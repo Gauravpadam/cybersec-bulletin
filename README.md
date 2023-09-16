@@ -9,7 +9,7 @@ This is a completely dockerized cybersecurity bulletin web application built ove
 
 ## How to use it:
 ### Pre-requisites:
-- Docker must be installed on the user's system ( [Link to docker download page](https://learn.microsoft.com/en-us/windows/wsl/install) )
+- Docker must be installed and running on the user's system ( [Link to docker download page](https://www.docker.com) )
 - For Windows users
   - Please make sure you're using Windows 10 or Above, With WSL setup ( usually takes less than 5 minutes , You can refer to this [official documentation from Microsoft](https://learn.microsoft.com/en-us/windows/wsl/install) )
 - For UNIX users, Only docker installed is enough
@@ -24,8 +24,8 @@ I have provided a ./dist folder which contains executables for major Operating S
 
 #### For UNIX based operating systems(MAC OS, Ubuntu, Arch etc.)
  - Open your terminal and redirect into dist/ directory
- - From here, run the command `./run-web-app.sh`
-  Again, Please be patient for the first instantiation, The process is a lot quicker henceforth
+ - Now run `sudo sh ./run-web-app.sh` ( Heads up! It might ask you for your system password, Please provide that )
+ - Again, Please be patient for the first instantiation, The process is a lot quicker henceforth
 
 ##### (A quick note: Please keep the terminals made by the executables open as long as you want to run the application, Since it is a local deployment)
 ##### (A quick note: running the .bat file might give you a warning of unknown signature, Please rest assured and run the file anyways. This happens because the file needs official certificate signing which was not possible in the development phase)
