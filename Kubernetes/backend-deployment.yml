@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: safran-backend-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: safran-backend
+  template:
+    metadata:
+      labels:
+        app: safran-backend
+    spec:
+      containers:
+      - name: safran-backend-container
+        image: safran-backend:latest
+        ports:
+        - containerPort: 80

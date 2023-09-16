@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: safran-frontend-deployment
+spec:
+  replicas: 3  # Adjust the number of replicas as needed
+  selector:
+    matchLabels:
+      app: safran-frontend
+  template:
+    metadata:
+      labels:
+        app: safran-frontend
+    spec:
+      containers:
+      - name: safran-frontend-container
+        image: safran-frontend:latest  # Use the image name you built earlier
+        ports:
+        - containerPort: 80
